@@ -1,0 +1,89 @@
+@import "../../styles.scss";
+
+table {
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 70%;
+  position: relative;
+  top: 10%;
+  margin: 0 auto;
+  td,
+  th {
+    padding: 5px 10px;
+  }
+  &,
+  tr,
+  td,
+  th {
+    border: 1px solid rgba(105, 105, 105, 0.432);
+  }
+  tr:nth-child(even) {
+    background-color: #b6c0fa4b;
+  }
+  th {
+    background-color: #afc2ffd2;
+    height: 2rem;
+    text-align: left;
+  }
+  td {
+    height: 3rem;
+    div {
+      padding: 5px;
+      border: 1px solid rgba(105, 105, 105, 0.432);
+      background-color: #778fdfd2;
+    }
+  }
+  .taraba {
+    width: 3%;
+  }
+  .ime {
+    width: 17%;
+  }
+  .knjizica {
+    width: 10%;
+  }
+  .radio {
+    width: 10%;
+  }
+  .akcije {
+    width: 5%;
+  }
+  .decoration {
+    border: 1px solid rgba(105, 105, 105, 0.432);
+    padding: 5px;
+    background-color: #778fdfd2;
+  }
+  .card {
+    background-color: green;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  .delete {
+    background-color: darkRed;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  tr:nth-child(even) {
+    background-color: #b6c0fa4b;
+  }
+}
+.add {
+  @extend %reset-button;
+  background-color: green;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+}
+.cas {
+  position: absolute;
+  right: 0px;
+  top: 25%;
+  width: 200px;
+  @extend %center;
+  color: darkblue;
+}

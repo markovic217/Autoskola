@@ -1,0 +1,14 @@
+<table #tabela class="kandidati-table">
+  <tr>
+    <th class="ime"><div>ИД број</div></th>
+    <th class="ime"><div>Код</div></th>
+  </tr>
+  <tr *ngFor="let p of polaze; let i = index">
+    <td>
+      {{ p.idKandidat }}
+    </td>
+    <td>
+      {{ p.kod }}
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,104 @@
+<table class="add-table">
+  <tr>
+    <th></th>
+    <th>ИД број</th>
+    <th>Име</th>
+    <th>Презиме</th>
+    <th>Акције</th>
+  </tr>
+  <tr>
+    <td>#</td>
+    <td>
+      <input
+        #id="ngModel"
+        style="width: 90%"
+        [(ngModel)]="kandidat.id"
+        required
+        minlength="3"
+        maxlength="3"
+        pattern="^[0-9]*$"
+        [class.invalid]="id.invalid && id.touched"
+      />
+      <!--<div *ngIf="id.invalid && id.touched" class="tooltip">
+        <small *ngIf="id.errors?.required" class="tooltiptext">Obavezno polje</small>
+        <small *ngIf="id.errors?.minlength" class="tooltiptext" >Id mora biti tri broja<br></small>
+        <small *ngIf="id.errors?.pattern" class="tooltiptext">Koristiti samo brojeve (0-9)</small>
+      </div> -->
+    </td>
+    <td>
+      <input
+        style="width: 90%"
+        [(ngModel)]="kandidat.ime"
+        required
+        #ime="ngModel"
+        [class.invalid]="ime.touched && ime.invalid"
+      />
+    </td>
+    <td>
+      <input
+        style="width: 90%"
+        [(ngModel)]="kandidat.prezime"
+        required
+        #prezime="ngModel"
+        [class.invalid]="prezime.touched && prezime.invalid"
+      />
+    </td>
+    <td>
+      <button
+        class="add"
+        (click)="postKandidat(kandidat)"
+        [disabled]="id.invalid || ime.invalid || prezime.invalid"
+      >
+        Add
+      </button>
+      <button class="delete" (click)="displayCols(true)">
+        <i class="material-icons-outlined" style="color: white">delete</i>
+      </button>
+    </td>
+  </tr>
+</table>
+
+<table #tabela class="kandidati-table">
+  <tr>
+    <th class="taraba"><div>#</div></th>
+    <th class="ime"><div>Име</div></th>
+    <th class="ime"><div>Презиме</div></th>
+    <th class="ime"><div>ИД број</div></th>
+    <th class="checkbox" *ngIf="display">
+      <div>
+        <input
+          type="checkbox"
+          (change)="checkUncheckAll()"
+          [(ngModel)]="masterSel"
+        />
+      </div>
+      <button *ngIf="display" class="cancel" (click)="displayCols(false)">
+        <b>Cancel</b>
+      </button>
+    </th>
+  </tr>
+  <tr *ngFor="let kandidat of kandidati; let i = index">
+    <td>
+      {{ i + 1 }}
+    </td>
+    <td>
+      {{ kandidat.ime }}
+    </td>
+    <td>
+      {{ kandidat.prezime }}
+    </td>
+    <td>
+      {{ kandidat.id }}
+    </td>
+    <td class="checkbox" *ngIf="display">
+      <input
+        type="checkbox"
+        [(ngModel)]="kandidat.isSelected"
+        [value]="kandidat.id"
+        (change)="onChange($event)"
+      />
+    </td>
+  </tr>
+</table>
+<div class="linija">Укупно кандидата: {{ kandidati.length }}</div>
+

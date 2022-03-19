@@ -1,0 +1,42 @@
+@import "../../styles.scss";
+@import "./add-table";
+@import "./kandidati-table";
+
+i {
+  margin-right: 10px;
+  color: white;
+  font-size: 16px;
+  @include size(16px, 16px);
+}
+.add {
+  @extend %reset-button;
+  background-color: green !important ;
+  cursor: pointer;
+  color: white;
+}
+.casovi {
+  position: absolute;
+  right: 0px;
+  top: 25%;
+  .cas {
+    @extend %center;
+    color: darkblue;
+    cursor: pointer;
+  }
+  ul {
+    width: 400px;
+    list-style-type: none;
+  }
+  li {
+    float: left;
+    width: 100px;
+    color: darkblue;
+    cursor: pointer;
+  }
+  @media screen and (max-width:1100px) {
+    ul{
+      width:300px;
+    }
+  }
+}
+

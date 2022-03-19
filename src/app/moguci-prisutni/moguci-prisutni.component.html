@@ -1,0 +1,34 @@
+<table #tabela class="kandidati-table">
+    <tr>
+      <th class="taraba"><div>#</div></th>
+      <th class="ime"><div>Име</div></th>
+      <th class="ime"><div>Презиме</div></th>
+      <th class="ime"><div>ИД број</div></th>
+    </tr>
+    <tr *ngFor="let kandidat of kandidati; let i = index">
+      <td>
+        {{ i + 1 }}
+      </td>
+      <td>
+        {{ kandidat.ime }}
+      </td>
+      <td>
+        {{ kandidat.prezime }}
+      </td>
+      <td>
+        {{ kandidat.id }}
+      </td>
+    </tr>
+  </table>
+  <div class="casovi">
+    <div class="cas">
+      <b>
+        <div>{{trenutniCas.kod}}</div>
+      </b>
+    </div>
+    <ul>
+      <li *ngFor="let cas of casovi" (click)="izaberiKod(cas.kod)">
+        <b>{{ cas.kod }}</b>
+      </li>
+    </ul>
+  </div>

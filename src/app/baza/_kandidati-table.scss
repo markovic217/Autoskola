@@ -1,0 +1,59 @@
+
+.kandidati-table {
+    font-size: font-size("small");
+    border-collapse: collapse;
+    width: 40%;
+    position: relative;
+    margin: 40px auto 0;
+    td,
+    th {
+      padding: 5px 10px;
+    }
+    &,
+    tr,
+    td,
+    th {
+      border: 1px solid rgba(105, 105, 105, 0.432);
+    }
+    tr:nth-child(even) {
+      background-color: #b6c0fa4b;
+    }
+    th {
+      background-color: #afc2ffd2;
+      height: 2rem;
+      text-align: left;
+    }
+    td {
+      height: 1rem;
+      text-transform: uppercase;
+
+    }
+    .taraba {
+      width: 3%;
+    }
+    .ime {
+      width: 17%;
+    }
+    .knjizica {
+      width: 10%;
+    }
+    .checkbox{
+      width:1%;
+      input{
+        @include size(20px,20px);
+      }
+    }
+    .card {
+      background-color: green;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+    .delete {
+      background-color: darkRed;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+    tr:nth-child(even) {background-color: #b6c0fa4b;}
+  }

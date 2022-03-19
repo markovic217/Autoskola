@@ -1,0 +1,69 @@
+<table #tabela id="table">
+  <tr>
+    <th class="taraba"><div>#</div></th>
+    <th class="ime"><div>Име</div></th>
+    <th class="ime"><div>Презиме</div></th>
+    <th class="ime"><div>ИД број</div></th>
+    <th class="knjizica">Књижица</th>
+    <th class="radio">1.</th>
+    <th class="radio">2.</th>
+    <th class="radio">3.</th>
+    <th class="akcije">Акције</th>
+  </tr>
+  <tr *ngFor="let kandidat of kandidati; let i = index">
+    <td>
+      <div class="decoration">{{ i + 1 }}</div>
+    </td>
+    <td>
+      <div class="decoration">{{ kandidat.ime }}</div>
+    </td>
+    <td>
+      <div class="decoration">{{ kandidat.prezime }}</div>
+    </td>
+    <td>
+      <div class="decoration">{{ kandidat.id }}</div>
+    </td>
+    <td>
+      <button class="card">
+        <i class="material-icons-outlined" style="color: white">badge</i>
+      </button>
+    </td>
+    <td>
+      <input
+        type="checkbox"
+        style="width: 1.5rem; height: 1.5rem"
+        [value]="trenutniCas[0].kod"
+        (change)="zavrsenCas($event, kandidat.id, 0)"
+      />
+    </td>
+    <td>
+      <input
+        type="checkbox"
+        style="width: 1.5rem; height: 1.5rem"
+        [value]="trenutniCas[1].kod"
+        (change)="zavrsenCas($event, kandidat.id, 1)"
+      />
+    </td>
+    <td>
+      <input
+        type="checkbox"
+        style="width: 1.5rem; height: 1.5rem"
+        [value]="trenutniCas[2].kod"
+        (change)="zavrsenCas($event, kandidat.id, 2)"
+      />
+    </td>
+    <td>
+      <button class="delete" (click)="deleteRow(i)">
+        <i class="material-icons-outlined" style="color: white">delete</i>
+      </button>
+    </td>
+  </tr>
+</table>
+<div class="cas">
+  <b>
+    <div>1. {{ trenutniCas[0].kod }}</div>
+    <div>2. {{ trenutniCas[1].kod }}</div>
+    <div>3. {{ trenutniCas[2].kod }}</div>
+  </b>
+</div>
+<button routerLink="/noviPrisutni" class="add" (click)="zavrsi()">Zavrsi cas</button>
